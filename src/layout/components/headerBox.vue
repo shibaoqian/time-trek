@@ -1,19 +1,21 @@
 <script setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
+import {useRoute} from 'vue-router'
 
+const route = useRoute()
 const menuData = ref(
   [
     {
       name: 'Features',
-      path: '/Features'
+      path: '/#Features'
     },
     {
       name: 'Pricing',
-      path: '/Pricing'
+      path: '/#Pricing'
     },
     {
       name: 'Help',
-      path: '/Help'
+      path: '/#Help'
     },
     {
       name: 'Login',
@@ -21,13 +23,15 @@ const menuData = ref(
     },
     {
       name: 'Main',
-      path: '/Main'
+      path: '/#Main'
     }
   ]
 )
 
 
-const activeMenu = ref('Main')
+const activeMenu = computed(() => {
+  return route.name === 'Login' ? route.name : route.hash.split('#')[1] || 'Main'
+})
 </script>
 
 <template>
@@ -35,11 +39,12 @@ const activeMenu = ref('Main')
     <div class="logo-box">
       <img class="logo-img" src="@/assets/img/logo.png" alt="">
     </div>
-
     <div class="menu-box">
-      <div :class="{activeMenu: activeMenu === item.name}" class="menu" @click="activeMenu = item.name" v-for="(item,index) in menuData" :key="index">
+      <router-link :class="{activeMenu: activeMenu === item.name}"
+           class="menu"
+           @click="activeMenu = item.name" v-for="(item,index) in menuData" :key="index" :to="item.path">
         {{ item.name }}
-      </div>
+      </router-link>
     </div>
   </header>
 </template>
@@ -57,11 +62,15 @@ const activeMenu = ref('Main')
   }
   .menu-box{
     display: flex;
-    padding-top: 20px;
+    padding-top: 40px;
+    align-items: start;
+    background: var(--vt-c-white);
+    height: 100px;
     .menu{
       margin: 0 20px;
       font-size: 22px;
       cursor: pointer;
+
     }
     .activeMenu{
       color: #0000ff;

@@ -11,5 +11,6 @@
 <style scoped>
 .content-box{
   width: 100%;
+  position: relative;
 }
 </style>
