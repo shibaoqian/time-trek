@@ -16,7 +16,7 @@ const router = createRouter({
     {
       path: '/Help',
       name: 'Help',
-      component: () => import('@/views/Help.vue')
+      component: () => import('@/views/HelpView.vue')
     },
   ],
   scrollBehavior(to) {
