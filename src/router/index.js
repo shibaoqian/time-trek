@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -7,13 +6,18 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: () => import('@/views/HomeView.vue')
     },
     {
-      path: '/login',
-      name: 'login',
-      component: HomeView
-    }
+      path: '/Login',
+      name: 'Login',
+      component: () => import('@/views/Login.vue')
+    },
+    {
+      path: '/Help',
+      name: 'Help',
+      component: () => import('@/views/Help.vue')
+    },
   ],
   scrollBehavior(to) {
     if (to.hash) {

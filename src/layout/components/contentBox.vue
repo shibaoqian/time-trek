@@ -12,5 +12,6 @@
 .content-box{
   width: 100%;
   position: relative;
+  min-height: calc(100vh - 558px);
 }
 </style>

@@ -15,7 +15,7 @@ const menuData = ref(
     },
     {
       name: 'Help',
-      path: '/#Help'
+      path: '/Help'
     },
     {
       name: 'Login',
@@ -30,7 +30,7 @@ const menuData = ref(
 
 
 const activeMenu = computed(() => {
-  return route.name === 'Login' ? route.name : route.hash.split('#')[1] || 'Main'
+  return route.name === 'Login' || route.name === 'Help' ? route.name : route.hash.split('#')[1] || 'Main'
 })
 </script>
 
