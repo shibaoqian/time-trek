@@ -40,11 +40,15 @@ const activeMenu = computed(() => {
       <img class="logo-img" src="@/assets/img/logo.png" alt="">
     </div>
     <div class="menu-box">
-      <router-link :class="{activeMenu: activeMenu === item.name}"
-           class="menu"
-           @click="activeMenu = item.name" v-for="(item,index) in menuData" :key="index" :to="item.path">
-        {{ item.name }}
-      </router-link>
+      <div v-for="(item,index) in menuData" :key="index" >
+        <router-link v-if="item.name !== 'Login'" :class="{activeMenu: activeMenu === item.name}" :to="item.path"
+                     class="menu"
+                     @click="activeMenu = item.name" >
+          {{ item.name }}
+        </router-link>
+        <a v-else class="menu" href="http://ec2-13-212-13-238.ap-southeast-1.compute.amazonaws.com:8075/admin/login">{{ item.name }}</a>
+      </div>
+
     </div>
   </header>
 </template>

@@ -13,6 +13,10 @@ const softwareList = ref(
     'Shipping & transportation',
   ]
 )
+
+const goPage = () => {
+  window.open('http://ec2-13-212-13-238.ap-southeast-1.compute.amazonaws.com:8075/admin/register')
+}
 </script>
 
 <template>
@@ -20,7 +24,7 @@ const softwareList = ref(
     <div  id="Main" class="box-1-class">
       <h1 class="title">Employee Roster<br/>software made<br/>simple.</h1>
       <p class="text">Generate employee schedules, oversee shift requests, monitor labor expenses, and facilitate communication with your workforce.</p>
-      <button class="btn">GET STARTED</button>
+      <button @click="goPage" class="btn">GET STARTED</button>
     </div>
     <div class="box-2-class">
       <h1 class="box-title">Manage your staff on<br/>the go.</h1>
