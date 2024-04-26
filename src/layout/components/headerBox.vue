@@ -70,8 +70,9 @@ const activeMenu = computed(() => {
     align-items: start;
     background: var(--vt-c-white);
     height: 100px;
+    gap: 20px;
     .menu{
-      margin: 0 20px;
+      //margin: 0 20px;
       font-size: 22px;
       cursor: pointer;
 
@@ -81,5 +82,22 @@ const activeMenu = computed(() => {
     }
   }
 }
+@media screen and (max-width: 1200px) {
+  .logo-box{
+    width: 30% !important;
+    .logo-img{
+      width: 20vw !important;
+      height: 20vw !important;
+    }
+  }
+  .menu-box{
+    gap: 10px!important;
+  }
+  .menu{
+    margin: 0 !important;
+    font-size: 12px !important;
+    cursor: pointer;
 
+  }
+}
 </style>

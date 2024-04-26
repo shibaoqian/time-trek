@@ -64,4 +64,9 @@ const footerData = ref(
     }
   }
 }
+@media screen and (max-width: 1200px){
+  .list-box{
+    flex-flow: wrap;
+  }
+}
 </style>
